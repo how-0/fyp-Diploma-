@@ -413,7 +413,7 @@ if(!(isset($_SESSION['email']))){
             }
         </script>
 
-        <a href="homepage.php" class="logo" style="">BRAIN BURST</a>
+        <a href="dash.php?q=0" class="logo" style="">BRAIN BURST</a>
 <?php
             $servername = "localhost";
             $username = "root";
@@ -480,7 +480,7 @@ if(isset($_POST['submit'])&& $_POST['submit']=="Search"){
     <!-- Search Form -->
    
 	
-    <form name="fSearch" id="fSearch" action="quizpage.php?q=1" method="POST">
+    <form name="fSearch" id="fSearch" action="adminquizpage.php?q=1" method="POST">
 			Search for quiz, category or code: <input type="text" name="search" value="<?php echo $key;?>">
 					<input type="submit" name="submit" value="Search">
 		</form></br></br>
@@ -523,9 +523,9 @@ if(isset($_POST['submit'])&& $_POST['submit']=="Search"){
 
             <div class="quiz-action">
                 <?php if($rowcount == 0) { ?>
-                <a href="quizpage.php?q=quiz&step=2&e_id=<?php echo $e_id; ?>&n=1&t=<?php echo $total; ?>" class="btn btn-success">Start Now</a>
+                <a href="adminquizpage.php?q=quiz&step=2&e_id=<?php echo $e_id; ?>&n=1&t=<?php echo $total; ?>" class="btn btn-success">Start Now</a>
                 <?php } else { ?>
-                <a href="update.php?q=quizre&step=25&e_id=<?php echo $e_id; ?>&n=1&t=<?php echo $total; ?>" class="btn btn-info">Do Again</a>
+                <a href="adminupdate.php?q=quizre&step=25&e_id=<?php echo $e_id; ?>&n=1&t=<?php echo $total; ?>" class="btn btn-info">Do Again</a>
                 <?php } ?>
             </div>
         </div>
@@ -552,7 +552,7 @@ if(@$_GET['q'] == 'quiz' && @$_GET['step'] == 2) {
         echo '<b style="font-size: 25px;">' . $sn . '.&nbsp;' . $quest . '</b><br />';
     }
     $q = mysqli_query($con, "SELECT * FROM options WHERE ques_id='$ques_id'");
-    echo '<form action="update.php?q=quiz&step=2&e_id='.$e_id.'&n='.$sn.'&t='.$total.'&ques_id='.$ques_id.'" method="POST"  class="form-horizontal">
+    echo '<form action="adminupdate.php?q=quiz&step=2&e_id='.$e_id.'&n='.$sn.'&t='.$total.'&ques_id='.$ques_id.'" method="POST"  class="form-horizontal">
 
 	<br/>';
     while($row = mysqli_fetch_array($q)) {

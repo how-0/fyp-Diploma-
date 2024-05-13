@@ -102,7 +102,7 @@ if (!(isset($_SESSION['email']))) {
             }
         </script>
 
-        <a href="#" class="logo" style="">BRAIN BURST</a>
+        <a href="dash.php?q=0" class="logo" style="">BRAIN BURST</a>
 
         <div class="dropdown" style="float:right;">
             <img src="pictures/user.png" class="user-pic">

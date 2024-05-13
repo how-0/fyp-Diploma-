@@ -181,7 +181,6 @@ mysqli_close($conn);
 			<a href="quizpage.php?q=2">Record</a>
 			<a href="quizpage.php?q=3">Ranking</a>
 			<a href="feedback.php">Feedback</a>
-
             <a href="setting.php">Setting</a>
             <a href="about.php">About Us</a>
 
@@ -203,8 +202,10 @@ mysqli_close($conn);
             }
         </script>
 
-        <a href="#" class="logo" style="">BRAIN BURST</a>
-<?php
+        <a href="homepage.php" class="logo" style="">BRAIN BURST</a>
+
+        
+            <?php
             $servername = "localhost";
             $username = "root";
             $password = "";

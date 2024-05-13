@@ -18,6 +18,9 @@
 .rowa {
 margin:70px;
 }
+.sidenavIndex{
+visibility: hidden;	
+}
 </style>
 <?php if(@$_GET['w']) {echo'<script>alert("'.@$_GET['w'].'");</script>';} ?>
 
@@ -62,7 +65,7 @@ function validateForm() {
 <!--Top nav-->
 <header>
 
-    <div id="mySidenav" class="sidenav">
+    <div id="mySidenav" class="sidenav" style="visibility:hidden;">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="#">Categories</a>
         <a href="#">Daily Suggestion</a>
@@ -71,7 +74,7 @@ function validateForm() {
         <a href="about.php">About Us</a>
     </div>
       
-    <span style="font-size:30px;cursor:pointer;padding:10px;" onclick="openNav()">&#9776;</span>
+    <span style="font-size:30px;cursor:pointer;padding:10px;" onclick="openNav()"></span>
       
     <script>
         function openNav() {

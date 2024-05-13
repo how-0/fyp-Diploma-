@@ -227,7 +227,8 @@ if (!$connection) {
 
         <a href="homepage.php" class="logo" style="">BRAIN BURST</a>
 
-        <?php
+        
+            <?php
             $servername = "localhost";
             $username = "root";
             $password = "";
@@ -299,7 +300,7 @@ if ($result) {
 }
 
 echo '<div class="panel-1">';
-echo '<h1>Daily Goal Tracker</h1>';
+echo '<h3><b>Daily Goal Tracker</b></h3>';
 echo '<form method="post" action="' . htmlspecialchars($_SERVER["PHP_SELF"]) . '">';
 echo '<label for="goal">Set your daily goal:</label>';
 echo '<input type="number" id="goal" name="goal" value="' . $goal . '" min="0" max="10" required>';

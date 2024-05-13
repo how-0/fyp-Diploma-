@@ -23,15 +23,19 @@ $email = addslashes($email);
 $password = stripslashes($password);
 $password = addslashes($password);
 $password = md5($password);
+$daily_goal = 0;
+$image='C:/xampp/htdocs/brainburst/uploads/user.png';
+$summary= '';
 
-$q3=mysqli_query($con,"INSERT INTO user VALUES  ('$name' , '$gender' ,'$email' ,'$password', '$image', '$summary')");
+
+$q3=mysqli_query($con,"INSERT INTO user VALUES  ('$name' , '$gender' ,'$email' ,'$password', '$image' , '$summary' , '$daily_goal')");
 if($q3)
 {
 session_start();
 $_SESSION["email"] = $email;
 $_SESSION["name"] = $name;
 
-header("location:quizpage.php?q=1");
+header("location:homepage.php");
 }
 else
 {

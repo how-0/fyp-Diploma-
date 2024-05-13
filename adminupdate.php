@@ -216,7 +216,7 @@ $q=mysqli_query($con,"UPDATE `history` SET `score`=$s,`level`=$sn,`wrong`=$w, da
 if($sn != $total)
 {
 $sn++;
-header("location:quizpage.php?q=quiz&step=2&e_id=$e_id&n=$sn&t=$total")or die('Error152');
+header("location:adminquizpage.php?q=quiz&step=2&e_id=$e_id&n=$sn&t=$total")or die('Error152');
 }
 else if( $_SESSION['key']!='sunny7785068889')
 {
@@ -240,11 +240,11 @@ $sun=$row['score'];
 $sun=$s+$sun;
 $q=mysqli_query($con,"UPDATE `rank` SET `score`=$sun ,time=NOW() WHERE email= '$email'")or die('Error174');
 }
-header("location:quizpage.php?q=result&e_id=$e_id");
+header("location:adminquizpage.php?q=result&e_id=$e_id");
 }
 else
 {
-header("location:quizpage.php?q=result&e_id=$e_id");
+header("location:adminquizpage.php?q=result&e_id=$e_id");
 }
 }
 

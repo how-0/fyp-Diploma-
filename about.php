@@ -161,7 +161,8 @@ session_start();
 
         <a href="homepage.php" class="logo" style="">BRAIN BURST</a>
 
-        <?php
+        
+            <?php
             $servername = "localhost";
             $username = "root";
             $password = "";
@@ -203,17 +204,45 @@ session_start();
         <h3><b>About Us</b></h3>
             <p>Welcome to Brain Burst, where knowledge meets excitement!</p>
 
-			<p>Brain Burst is more than just a quiz application—it's a gateway to a world where learning is an adventure. We understand that the pursuit of knowledge is not just about memorizing facts; it's about curiosity, exploration, and the thrill of discovery. That's why we've created a platform that offers not just questions, but an immersive experience designed to challenge and inspire you.</p>
+			<p>Brain Burst is more than just a quiz application-it's a gateway to a world where learning is an adventure. We understand that the pursuit of knowledge is not just about memorizing facts; it's about curiosity, exploration, and the thrill of discovery. That's why we've created a platform that offers not just questions, but an immersive experience designed to challenge and inspire you.</p>
 
 			<p>Our quiz categories span a wide range of topics, from history and science to pop culture and sports. Whether you're passionate about a particular subject or looking to broaden your horizons, Brain Burst has something for everyone.</p>
 
-			<p>What truly sets Brain Burst apart is our dedication to making learning fun and rewarding. With every correct answer, you'll earn points and climb the leaderboard, competing with friends and other users for the top spot. But it's not just about winning—it's about the joy of learning something new and the satisfaction of mastering a topic.</p>
+			<p>What truly sets Brain Burst apart is our dedication to making learning fun and rewarding. With every correct answer, you'll earn points and climb the leaderboard, competing with friends and other users for the top spot. But it's not just about winning-it's about the joy of learning something new and the satisfaction of mastering a topic.</p>
 
 			<p>As you progress through the quizzes, you'll unlock achievements and earn badges, showcasing your knowledge and dedication. And with regular updates and new challenges added regularly, there's always something new to discover on Brain Burst.</p>
 
 			<p>Join us on this exciting journey of knowledge and discovery. Challenge yourself, compete with friends, and embark on a quest to unlock the secrets of the world around you. Welcome to Brain Burst, where knowledge meets excitement!</p>
+			<hr>
+			
+        
+		
+		<div>
+		<h3><b>Contact Us</b></h3>
+			<div class = "container-1">
+			<a href="#" data-toggle="modal" data-target="#contactus">Contact Information</a><br><br>
 			</div>
-        </div>
+		
+		</div>
     </div>
+	
+	<div class="modal fade" id="contactus">
+    <div class="modal-dialog">
+        <div class="modal-content title1">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title title1">Contact Information</h4>
+            </div>
+            <div class="modal-body">
+                <p>Email Address : brainburst@admin.com</p><br>
+				<p>Contact Number : 012-3337789</p>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!-- sign in modal closed -->
+</div>
+</div>
 </body>
 </html>

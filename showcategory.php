@@ -63,90 +63,85 @@ if (!$connection) {
             padding: 20px;
         }
 
-        table {
-            width: 100%;
-            border: 2px solid #ddd;
+        .title1 {
+            font-size: 24px;
+            margin-bottom: 20px;
         }
 
-        th, td {
-            padding: 12px;
-            border: 1px solid #ddd;
+        .search-form {
+            margin-bottom: 20px;
         }
 
-        th {
-            background-color: #f2f2f2;
+        .search-form input[type="text"] {
+            padding: 10px;
+            width: calc(70% - 10px);
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-right: 10px;
         }
 
-       
-        a {
-            color: #007bff;
-            text-decoration: none;
-        }
-
-       
-		
-		form {
-            margin-top: 30px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 15px;
-            font-size: 18px;
-            color: #555;
-        }
-
-       
-
-        input[type="radio"] + label {
-            position: relative;
-            padding-left: 30px;
-            cursor: pointer;
-            line-height: 1.6;
-        }
-
-        input[type="radio"] + label::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 0;
-            transform: translateY(-50%);
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            border: 2px solid #007bff;
-            background-color: #fff;
-        }
-
-        input[type="radio"]:checked + label::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 5px;
-            transform: translateY(-50%);
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background-color: #007bff;
-        }
-
-        button {
-            display: block;
-            width: 100%;
+        .search-form button {
             padding: 10px 20px;
-            margin-top: 30px;
-            font-size: 18px;
-            color: #fff;
-            background-color: #007bff;
             border: none;
             border-radius: 5px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: #fff;
             cursor: pointer;
-            transition: background-color 0.3s ease;
         }
 
-        button:hover {
-            background-color: #0056b3;
+        .quiz-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-gap: 20px;
         }
+
+        .quiz-item {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .quiz-title {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        .quiz-details {
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .btn-success {
+            background-color: #28a745;
+            color: #fff;
+        }
+
+        .btn-info {
+            background-color: #17a2b8;
+            color: #fff;
+        }
+
+        .btn:hover {
+            opacity: 0.8;
+        }
+        
 		
 		
     </style>
@@ -169,8 +164,8 @@ if (!$connection) {
 	<div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <a href="category.php">Categories</a>
-            <a href="#">Daily Suggestion</a>
-            <a href="#">Daily Goal</a>
+            <a href="quiz_rec.php">Daily Suggestion</a>
+            <a href="daily_goal.php">Daily Goal</a>
 			<a href="quizpage.php?q=1">Quiz</a>
 			<a href="quizpage.php?q=2">Record</a>
 			<a href="quizpage.php?q=3">Ranking</a>
@@ -263,63 +258,45 @@ if(isset($_GET['category'])) {
     $quizQuery = "SELECT c.*, q.* FROM category c JOIN quiz q ON c.quiz_id = q.quiz_id WHERE c.quiz_id = $categoryId";
     $quizResult = mysqli_query($connection, $quizQuery);
     echo '
-	<div class="panel">
-    <table class="table title1">
-	   <h3><b>Quizzes for '.$categoryName.'</b></h3>
-
-        <tr>
-            <th style="text-align: center;">No</th>
-            <th style="text-align: center;">Quiz</th>
-            <th style="text-align: center;">Number of Questions</th>
-            <th style="text-align: center;">Total Marks</th>
-            <th style="text-align: center;">Action</th>
-        </tr>'; ?>
-        <!-- Loop through PHP data -->
-        <?php
-        $c=1;
-        while($row = mysqli_fetch_array($quizResult)) {
-            // Your code to display quizzes
-            $title = $row['title'];
-            $total = $row['total'];
-            $correct = $row['correct'];
-            $time = $row['time'];
-            $e_id = $row['e_id'];
-            $q12="SELECT score FROM history WHERE e_id='$e_id' AND email='$email'";
-            $q12result=mysqli_query($connection, $q12);   
-            if($q12result->num_rows == 0) { // Check if the user has not attempted the quiz yet
-                echo '<tr> 
-                        <td style="text-align: center;">'.$c++.'</td>
-                        <td style="text-align: center;">'.$title.'</td>
-                        <td style="text-align: center;">'.$total.'</td>
-                        <td style="text-align: center;">'.$correct*$total.'</td>
-                        <td style="text-align: center;">
-                            <b>
-                                <a href="quizpage.php?q=quiz&step=2&e_id='.$e_id.'&n=1&t='.$total.'" class="btn sub1">
-                                    <span class="title1"><b>Start Now</b></span>
-                                </a>
-                            </b>
-                        </td>
-                    </tr>';
-            } else { // User has attempted the quiz before
-                echo '<tr>
-                        <td style="text-align: center;">'.$c++.'</td>
-                        <td style="text-align: center;">'.$title.'&nbsp;<span title="This quiz is already solved by you"></span></td>
-                        <td style="text-align: center;">'.$total.'</td>
-                        <td style="text-align: center;">'.$correct*$total.'</td>
-                        <td style="text-align: center;">
-                            <b>
-                                <a href="update.php?q=quizre&step=25&e_id='.$e_id.'&n=1&t='.$total.'" class="btn sub1">
-                                    <span class="title1"><b>Do Again</b></span>
-                                </a>
-                        </td>
-                    </tr>';
-            }
-        }
-        ?>
-    </table>
-    <?php
-    // HTML ends here
+    <div class="panel">
+    <h3 class="title1"><b>Quizzes for '.$categoryName.'</b></h3>
+    <div class="quiz-list">';
     
+    while($row = mysqli_fetch_array($quizResult)) {
+        // Your code to display quizzes
+        $title = $row['title'];
+        $total = $row['total'];
+        $correct = $row['correct'];
+        $time = $row['time'];
+        $e_id = $row['e_id'];
+        $q12="SELECT score FROM history WHERE e_id='$e_id' AND email='$email'";
+        $q12result=mysqli_query($connection, $q12);   
+        if($q12result->num_rows == 0) { // Check if the user has not attempted the quiz yet
+            echo '<div class="quiz-item">
+                    <h4 class="quiz-title"><b>'.$title.'</b></h4>
+                    <div class="quiz-details">
+                        <p>Number of Questions: '.$total.'</p>
+                        <p>Total Marks: '.$correct*$total.'</p>
+                    </div>
+                    <a href="quizpage.php?q=quiz&step=2&e_id='.$e_id.'&n=1&t='.$total.'" class="btn btn-success">
+                        Start Now
+                    </a>
+                </div>';
+        } else { // User has attempted the quiz before
+            echo '<div class="quiz-item">
+                    <h4 class="quiz-title"><b>'.$title.' </b><span title="This quiz is already solved by you"></span></h4>
+                    <div class="quiz-details">
+                        <p>Number of Questions: '.$total.'</p>
+                        <p>Total Marks: '.$correct*$total.'</p>
+                    </div>
+                    <a href="update.php?q=quizre&step=25&e_id='.$e_id.'&n=1&t='.$total.'" class="btn btn-info">
+                        Do Again
+                    </a>
+                </div>';
+        }
+    }
+    
+    echo '</div></div>'; // Close panel and quiz-list div
 }
 
 // Close the database connection

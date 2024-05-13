@@ -163,7 +163,6 @@ if (!$connection) {
 			<a href="quizpage.php?q=2">Record</a>
 			<a href="quizpage.php?q=3">Ranking</a>
 			<a href="feedback.php">Feedback</a>
-
             <a href="setting.php">Setting</a>
             <a href="about.php">About Us</a>
 
@@ -185,7 +184,7 @@ if (!$connection) {
             }
         </script>
 
-        <a href="#" class="logo" style="">BRAIN BURST</a>
+        <a href="homepage.php" class="logo" style="">BRAIN BURST</a>
 
         
             <?php
@@ -259,7 +258,7 @@ if (!$connection) {
 						echo '<img src="/brainburst/uploads/' . basename($image) . '" alt="Profile Picture" class="user-pic-1"><br><br>';
 				} else {
 						// Display default profile picture if profile picture is not set
-						echo '<img src="/pictures/user.png" alt="Default Profile Picture" class="user-pic-1"><br><br>';
+						echo '<img src="pictures/user.png" alt="Default Profile Picture" class="user-pic-1"><br><br>';
 				}
 				
 			

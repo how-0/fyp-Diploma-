@@ -71,42 +71,40 @@ if (!(isset($_SESSION['email']))) {
 </style>
 </head>
 <body>
-<!--Top nav-->
-
+<!-- Top nav -->
 <header>
-	<div id="mySidenav" class="sidenav">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="category.php">Categories</a>
-            <a href="quiz_rec.php">Daily Suggestion</a>
-            <a href="daily_goal.php">Daily Goal</a>
-			<a href="quizpage.php?q=1">Quiz</a>
-			<a href="quizpage.php?q=2">Record</a>
-			<a href="quizpage.php?q=3">Ranking</a>
-			<a href="feedback.php">Feedback</a>
-            <a href="setting.php">Setting</a>
-            <a href="about.php">About Us</a>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="category.php">Categories</a>
+        <a href="quiz_rec.php">Daily Suggestion</a>
+        <a href="daily_goal.php">Daily Goal</a>
+        <a href="quizpage.php?q=1">Quiz</a>
+        <a href="quizpage.php?q=2">Record</a>
+        <a href="quizpage.php?q=3">Ranking</a>
+        <a href="feedback.php">Feedback</a>
+        <a href="setting.php">Setting</a>
+        <a href="about.php">About Us</a>
+    </div>
 
-          </div>
-          
-          <span style="font-size:30px;cursor:pointer;padding:10px;" onclick="openNav()">&#9776;</span>
-          
-        <script>
-            function openNav() {
-                document.getElementById("mySidenav").style.width = "250px";
-            }
-          
-            function closeNav() {
-                document.getElementById("mySidenav").style.width = "0";
-            }
+    <span style="font-size:30px;cursor:pointer;padding:10px;" onclick="openNav()">&#9776;</span>
 
-            function hideSidebar() {
-                document.getElementById('openSideMenu').checked = false;
-            }
-        </script>
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+        }
 
-        <a href="homepage.php" class="logo" style="">BRAIN BURST</a>
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
 
-        <?php
+        function hideSidebar() {
+            document.getElementById('openSideMenu').checked = false;
+        }
+    </script>
+
+    <a href="homepage.php" class="logo">BRAIN BURST</a>
+
+    <?php
             $servername = "localhost";
             $username = "root";
             $password = "";

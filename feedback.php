@@ -29,13 +29,14 @@ margin:10px;
 	<div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <a href="category.php">Categories</a>
-            <a href="quiz_rec.php">Daily Suggestion</a>
-            <a href="daily_goal.php">Daily Goal</a>
+            <a href="#">Daily Suggestion</a>
+            <a href="#">Daily Goal</a>
 			<a href="quizpage.php?q=1">Quiz</a>
 			<a href="quizpage.php?q=2">Record</a>
 			<a href="quizpage.php?q=3">Ranking</a>
 			<a href="feedback.php">Feedback</a>
-            <a href="setting.php">Setting</a>
+
+            <a href="setting.php">Settings</a>
             <a href="about.php">About Us</a>
 
           </div>
@@ -57,8 +58,7 @@ margin:10px;
         </script>
 
         <a href="homepage.php" class="logo" style="">BRAIN BURST</a>
-
-        <?php
+<?php
             $servername = "localhost";
             $username = "root";
             $password = "";

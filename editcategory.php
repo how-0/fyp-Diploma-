@@ -63,7 +63,7 @@ if (!(isset($_SESSION['email']))) {
 	<div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <a href="admincategory.php">Edit Categories</a>
-            <?php if(@$_GET['q']==0)?><a href="dash.php?q=0">Home</a>
+            <?php if(@$_GET['q']==0)?><a href="dash.php?q=0">Quiz</a>
             <?php if(@$_GET['q']==1)?><a href="dash.php?q=1">User</a>
             <?php if(@$_GET['q']==2)?><a href="dash.php?q=2">Ranking</a>
 			<?php if(@$_GET['q']==3)?><a href="dash.php?q=3">Feedback</a>
@@ -89,7 +89,7 @@ if (!(isset($_SESSION['email']))) {
             }
         </script>
 
-        <a href="#" class="logo" style="">BRAIN BURST</a>
+        <a href="homepage.php" class="logo" style="">BRAIN BURST</a>
 
         <div class="dropdown" style="float:right;">
             <img src="pictures/user.png" class="user-pic">

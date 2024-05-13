@@ -21,7 +21,7 @@ while($row = mysqli_fetch_array($result)) {
 }
 $_SESSION["name"] = $name;
 $_SESSION["email"] = $email;
-header("location:quizpage.php?q=1");
+header("location:homepage.php");
 }
 else
 header("location:$ref?w=Wrong Username or Password");
